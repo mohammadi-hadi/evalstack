@@ -81,7 +81,7 @@ Every row is from committed results in that repository, on named public data.
 | **trajectory-judge** | 400 trajectories, 175 silent faults | The step-rubric judge catches **0.766** of faults that never broke the answer, at **0.923** F1 and zero false alarms; the outcome-only judge catches **0.451** |
 | **raterkit** | GoEmotions, 211,225 ratings, 82 raters | **27 of 28** emotions sit below the 0.667 reliability floor |
 | **arenakit** | LMArena, 106,134 votes, 55 models | **1 of 54** neighbouring pairs survives once all 54 comparisons are made at once. On MT-Bench, GPT-4 reverses **15.8%** of its verdicts when the answers swap places, and still reproduces the human ranking exactly (Kendall tau **+1.00**) |
-| **abkit** | Upworthy Archive, 4,873 real tests | **16%** fail the sample-ratio check at p < 0.001. Benjamini-Hochberg cuts significant winners from **10.9%** to **2.7%** |
+| **abkit** | Upworthy Archive, 4,873 real tests | **753 of 4,873 (15.5%)** fail the sample-ratio check at p < 0.001. Benjamini-Hochberg cuts significant winners from **10.9%** to **2.7%** |
 | **retainkit** | LoCoMo, 6 memory policies | At a 2,048-token budget a sliding window answers **7.7%** of questions; reading the question first and retrieving takes the same budget to **59.5%** |
 | **rankkit** | bundled click-log example | Counting clicks says the candidate loses by 0.124; correcting for position says it wins by 0.019. **The conclusion flips at eta = 0.94**, close enough to the assumed 1.0 that the verdict is an assumption |
 | **calikit** | bundled predictions | Temperature scaling takes ECE from **0.1290 to 0.0425** |
