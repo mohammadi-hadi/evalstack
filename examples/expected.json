@@ -1,0 +1,33 @@
+{
+  "_comment": "Pinned outputs of the Chain A contract test. Regenerate with examples/run_chain.sh, never by hand. Bootstrap is off (--bootstrap 0) so nothing here depends on an RNG; the EM fit is deterministic.",
+  "source": {
+    "repo": "mohammadi-hadi/trajectory-judge",
+    "commit": "ab5ac1283bf2804e213a177503deabd82deb705b",
+    "files": [
+      "results/raw/verdicts.jsonl",
+      "results/raw/trajectories.jsonl"
+    ]
+  },
+  "panel": {
+    "n_items": 400,
+    "n_judges": 5,
+    "converged": true,
+    "prevalence_true": 0.6454203040393927,
+    "specificity_step_llama31_8b": 7.049751655469534e-05,
+    "sensitivity_step_qwen25_14b": 0.9953859107898229,
+    "_note": "specificity prints as 0.000 but is 7.05e-05; assert the value, not the rounding"
+  },
+  "accuracy": {
+    "panel": 0.895,
+    "majority_vote": 0.8975
+  },
+  "calibration": {
+    "n": 400,
+    "base_rate": 0.895,
+    "brier": 0.1048968445558325,
+    "ece": 0.1045066325,
+    "spiegelhalter_z": 127.48251036649715,
+    "significant": true
+  },
+  "tolerance": 1e-06
+}
