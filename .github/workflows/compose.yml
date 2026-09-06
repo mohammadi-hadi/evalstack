@@ -1,0 +1,38 @@
+name: compose
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly, so a downstream release that breaks the chain surfaces here
+    # rather than in somebody else's terminal.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  chain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          # 3.12 is the floor: the lowest version on which every tool in the
+          # stack installs together (judgepanel and trajectory-judge are 3.12+).
+          python-version: "3.12"
+
+      - name: Install the tools from PyPI
+        # Deliberately not from source. The point of this job is to prove the
+        # chain works across independently released packages.
+        run: pip install judgepanel calikit abeval
+
+      - name: Run the chain
+        env:
+          OUT: ${{ runner.temp }}/chain
+        run: |
+          mkdir -p "$OUT"
+          bash examples/run_chain.sh
+
+      - name: Check it still produces the pinned numbers
+        run: python examples/check_chain.py "${{ runner.temp }}/chain"
