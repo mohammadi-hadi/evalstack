@@ -133,7 +133,7 @@ abeval compare majority_scored.jsonl panel_scored.jsonl --id-key item --metric y
 
 That last pair of results is why the whole chain matters. Any single step would
 have missed it. judgepanel is worth having because it names a broken judge
-labels — not by aggregating better than counting votes, which on this panel it
+without gold labels — not by aggregating better than counting votes, which on this panel it
 does not do. You only find that out by carrying its output into calikit and
 abeval.
 
