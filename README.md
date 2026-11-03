@@ -51,7 +51,7 @@ flowchart LR
 
     RK -.->|"the labels a judge<br/>is scored against"| JK["judgekit<br/>position · verbosity · self-preference"]
     RT -.->|"what the judge<br/>was actually shown"| JK
-    JW["judgewatch<br/>monthly frozen probe set"] -.->|"the same probes,<br/>tracked over time"| JK
+    JW["judgewatch<br/>frozen, versioned probe set"] -.->|"the same biases,<br/>as a fixed probe set"| JK
 
     TJ ==>|"verdicts.jsonl<br/>trajectory_id · judge_id · faulty"| JP["judgepanel<br/>Dawid-Skene · no gold labels"]
     JK -->|"verdicts<br/>item_id · judge_id · choice"| JP
@@ -163,7 +163,7 @@ flags. Documented on both sides.
 | [judgekit](https://github.com/mohammadi-hadi/judgekit) · [PyPI](https://pypi.org/project/judgekit/) · [DOI](https://doi.org/10.5281/zenodo.21802868) | Bias probes with bootstrap intervals: position, verbosity, self-preference, calibration, stability. `pip install judgekit` |
 | [judgepanel](https://github.com/mohammadi-hadi/judgepanel) · [PyPI](https://pypi.org/project/judgepanel/) · [DOI](https://doi.org/10.5281/zenodo.21809473) | Judge accuracy without gold labels, by Dawid-Skene over a panel. `pip install judgepanel` |
 | [trajectory-judge](https://github.com/mohammadi-hadi/trajectory-judge) · [PyPI](https://pypi.org/project/trajectory-judge/) · [DOI](https://doi.org/10.5281/zenodo.21797926) | What a judge misses when an agent gets the right answer the wrong way. `pip install trajectory-judge` |
-| [judgewatch](https://github.com/mohammadi-hadi/judgewatch) · [DOI](https://doi.org/10.5281/zenodo.21806464) | A frozen probe set run monthly, to catch judges drifting under stable API names. |
+| [judgewatch](https://github.com/mohammadi-hadi/judgewatch) · [DOI](https://doi.org/10.5281/zenodo.21806464) | A frozen, versioned bias probe set for LLM judges, and a harness that runs it. No audit has been published yet. |
 
 **Data going in**
 
