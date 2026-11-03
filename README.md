@@ -78,7 +78,7 @@ Every row is from committed results in that repository, on named public data.
 |---|---|---|
 | **judgekit** | 105 adversarial arithmetic pairs, both orders | `qwen2.5:14b` picks the answer presented first in **76.8%** of decisive verdicts; `aya-expanse:8b` does it **91.0%** of the time |
 | **judgepanel** | 400 agent trajectories, 5 judges, gold hidden | The flag-everything judge is exposed at estimated specificity **0.000** — with no gold labels — while a correlated pair agrees at kappa **0.962** and inflates both estimates |
-| **trajectory-judge** | 400 trajectories, 175 silent faults | The step-rubric judge catches **0.766** of faults that never broke the answer, at **0.923** F1 and zero false alarms; the outcome-only judge catches **0.451** |
+| **trajectory-judge** | 400 trajectories, 251 faults paired with the clean run they came from | Paired against those clean runs, the outcome-only judge's 0.451 recall on faults that never broke the answer shrinks to **+0.05**, and it flags 33 of 100 clean runs. The step-rubric judge separates all **151** faults that leave the reply unchanged from their parents (**+1.00**) and flags none of the 100 clean runs |
 | **raterkit** | GoEmotions, 211,225 ratings, 82 raters | **27 of 28** emotions sit below the 0.667 reliability floor |
 | **arenakit** | LMArena, 106,134 votes, 55 models | **1 of 54** neighbouring pairs survives once all 54 comparisons are made at once. On MT-Bench, GPT-4 reverses **15.8%** of its verdicts when the answers swap places, and still reproduces the human ranking exactly (Kendall tau **+1.00**) |
 | **abkit** | Upworthy Archive, 4,873 real tests | **753 of 4,873 (15.5%)** fail the sample-ratio check at p < 0.001. Benjamini-Hochberg cuts significant winners from **10.9%** to **2.7%** |
