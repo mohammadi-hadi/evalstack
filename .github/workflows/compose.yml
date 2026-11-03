@@ -14,9 +14,9 @@ jobs:
   chain:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           # 3.12 is the floor: the lowest version on which every tool in the
           # stack installs together (judgepanel and trajectory-judge are 3.12+).
