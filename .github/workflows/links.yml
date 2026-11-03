@@ -10,6 +10,9 @@ on:
 jobs:
   lychee:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
     steps:
       - uses: actions/checkout@v7
       - uses: lycheeverse/lychee-action@v2
@@ -24,3 +27,11 @@ jobs:
             --accept 200,206,408,429
             README.md
           fail: true
+
+      - name: Keep the schedule alive
+        # GitHub disables scheduled workflows after 60 days without a push.
+        # Re-enabling it through the API keeps it on without a commit.
+        if: ${{ !cancelled() && github.event_name != 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT repos/${{ github.repository }}/actions/workflows/links.yml/enable
